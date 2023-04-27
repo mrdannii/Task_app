@@ -31,14 +31,14 @@
                         <tbody class="text-center">
 
                                 <tr>
-                                    <th scope="row">{{ $i++ }}</th>
-                                    <td><a href=""> {{ $item->title }} </a> </td>
+                                    <th scope="row"> {{ $i++ }} </th>
+                                    <td><a href="{{ route('task.edit', $item->id) }}"> {{ $item->title }} </a> </td>
                                     {{-- <td>{{ $item->description }}</td> --}}
                                     <td>{{ $item->status }}</td>
                                     <td>{{ $item->updated_at->diffForHumans() }}</td>
                                    <td>
 
-                                    <div class="items-center justify-center">
+                                    <div class="flex items-center justify-center">
                                         <form class="" action="{{ route('task.update', $item->id) }}"
                                             method="post">
                                             @csrf
@@ -50,7 +50,7 @@
                                             method="post">
                                             @csrf
                                             @method('DELETE')
-                                            <x-secondary-button>{{ __('Remove ✖') }}</x-secondary-button>
+                                            <x-danger-button>{{ __('Remove ✖') }}</x-danger-button>
                                         </form>
                                     </div>
 

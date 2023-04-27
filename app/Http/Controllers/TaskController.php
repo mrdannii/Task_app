@@ -58,7 +58,8 @@ class TaskController extends Controller
      */
     public function edit(Task $task)
     {
-        //
+
+        return view('task.edit',compact('task'));
     }
 
     /**
@@ -70,6 +71,8 @@ class TaskController extends Controller
             $task->status= $request['status'];
             $task->update();
         }
+        $task->update($request->all());
+
      //  dd($request);
         return redirect(route('task.index'))->with('status', 'Task-updated');
 
